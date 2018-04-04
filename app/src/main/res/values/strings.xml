@@ -31,4 +31,6 @@
     <string name="password">Enter password</string>
     <string name="signin">Sign In</string>
     <string name="launch_custom_dialog">Launch Custom Dialog</string>
+
+    <string name="dialog_too_many_toppings">Too Many Toppings, Scale It Back Turbo!</string>
 </resources>

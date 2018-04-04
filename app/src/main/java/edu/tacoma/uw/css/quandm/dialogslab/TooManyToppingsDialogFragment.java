@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -12,21 +11,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link MultiListDialogFragment.OnFragmentInteractionListener} interface
+ * {@link TooManyToppingsDialogFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link MultiListDialogFragment#newInstance} factory method to
+ * Use the {@link TooManyToppingsDialogFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MultiListDialogFragment extends DialogFragment {
+public class TooManyToppingsDialogFragment extends DialogFragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -38,7 +33,7 @@ public class MultiListDialogFragment extends DialogFragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public MultiListDialogFragment() {
+    public TooManyToppingsDialogFragment() {
         // Required empty public constructor
     }
 
@@ -48,11 +43,11 @@ public class MultiListDialogFragment extends DialogFragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment MultiListDialogFragment.
+     * @return A new instance of fragment TooManyToppingsDialogFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static MultiListDialogFragment newInstance(String param1, String param2) {
-        MultiListDialogFragment fragment = new MultiListDialogFragment();
+    public static TooManyToppingsDialogFragment newInstance(String param1, String param2) {
+        TooManyToppingsDialogFragment fragment = new TooManyToppingsDialogFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -70,58 +65,28 @@ public class MultiListDialogFragment extends DialogFragment {
     }
 
     @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final List mSelectedItems = new ArrayList();  //track selected items
+    public Dialog onCreateDialog(Bundle saveInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        // Set the dialog title
-        builder.setTitle(R.string.pick_toppings)
-                .setMultiChoiceItems(R.array.toppings_array, null, new DialogInterface.OnMultiChoiceClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int index, boolean isChecked) {
-                        if (isChecked) {
-                            // add the checked item to the
-                            mSelectedItems.add(index);
-                        } else if (mSelectedItems.contains(index)) {
-                            // already in the array
-                            mSelectedItems.remove(Integer.valueOf((index)));
-                        }
-                    }
-                })
+        builder.setMessage(R.string.dialog_too_many_toppings)
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int id) {
-                        // User selected OK, so save the items results
-                        // or return them to the component that opened the dialog
-                        Resources res = getActivity().getResources();
-                        String[] toppings = res.getStringArray(R.array.toppings_array);
-                        StringBuilder builder = new StringBuilder();
-                        for (int i = 0; i < mSelectedItems.size(); i++) {
-                            builder.append(toppings[(int) mSelectedItems.get(i)]);
-                            builder.append(" ");
-                        }
-
-                        Toast.makeText(getActivity(), builder.toString(), Toast.LENGTH_LONG).show();
-                        if (mSelectedItems.size() == toppings.length) {
-                            DialogFragment fragment = new TooManyToppingsDialogFragment();
-                            if (fragment != null) {
-                                fragment.show(getActivity().getSupportFragmentManager(), "MultiList");
-                            }
-                        }
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        // message to user maybe toast
                     }
                 })
                 .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int id) {
-
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        // publicly shame
                     }
                 });
-        return builder.create();
+        return  builder.create();
     }
 /*    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_multi_list_dialog, container, false);
+        return inflater.inflate(R.layout.fragment_too_many_toppings_dialog, container, false);
     }*/
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -11,7 +11,8 @@ public class DialogsActivity extends AppCompatActivity
         implements FireMissilesDialogFragment.OnFragmentInteractionListener,
         ListDialogFragment.OnFragmentInteractionListener,
         MultiListDialogFragment.OnFragmentInteractionListener,
-        CustomDialogFragment.OnFragmentInteractionListener{
+        CustomDialogFragment.OnFragmentInteractionListener,
+        TooManyToppingsDialogFragment.OnFragmentInteractionListener{
 
     public static final String TAG = "DialogsActivity";
     @Override
