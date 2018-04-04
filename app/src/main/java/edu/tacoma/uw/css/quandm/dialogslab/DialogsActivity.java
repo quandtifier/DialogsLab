@@ -10,7 +10,8 @@ import android.view.View;
 public class DialogsActivity extends AppCompatActivity
         implements FireMissilesDialogFragment.OnFragmentInteractionListener,
         ListDialogFragment.OnFragmentInteractionListener,
-        MultiListDialogFragment.OnFragmentInteractionListener{
+        MultiListDialogFragment.OnFragmentInteractionListener,
+        CustomDialogFragment.OnFragmentInteractionListener{
 
     public static final String TAG = "DialogsActivity";
     @Override
@@ -27,6 +28,8 @@ public class DialogsActivity extends AppCompatActivity
             fragment = new ListDialogFragment();
         } else if (view.getId() == R.id.btn_launch_toppings) {
             fragment = new MultiListDialogFragment();
+        } else if (view.getId() == R.id.btn_custom_signin) {
+            fragment = new CustomDialogFragment();
         }
 
         if (fragment != null) {

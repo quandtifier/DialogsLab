@@ -26,4 +26,9 @@
     </array>
     <string name="ok">OK</string>
     <string name="launch_multi_dialog">Launch Multiple Dialog</string>
+
+    <string name="username">Enter username</string>
+    <string name="password">Enter password</string>
+    <string name="signin">Sign In</string>
+    <string name="launch_custom_dialog">Launch Custom Dialog</string>
 </resources>
