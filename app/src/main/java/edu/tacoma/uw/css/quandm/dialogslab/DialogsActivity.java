@@ -8,7 +8,8 @@ import android.util.Log;
 import android.view.View;
 
 public class DialogsActivity extends AppCompatActivity
-        implements FireMissilesDialogFragment.OnFragmentInteractionListener{
+        implements FireMissilesDialogFragment.OnFragmentInteractionListener,
+        ListDialogFragment.OnFragmentInteractionListener {
 
     public static final String TAG = "DialogsActivity";
     @Override
@@ -21,7 +22,11 @@ public class DialogsActivity extends AppCompatActivity
         DialogFragment fragment = null;
         if (view.getId() == R.id.btn_fire_missiles) {
             fragment = new FireMissilesDialogFragment();
-        } if (fragment != null) {
+        } else if (view.getId() == R.id.btn_launch_colors) {
+            fragment = new ListDialogFragment();
+        }
+
+        if (fragment != null) {
             fragment.show(getSupportFragmentManager(), "launch");
         }
         Log.v(TAG, "end of launch");

@@ -7,6 +7,11 @@
     <string name="fire">Fire</string>
     <string name="cancel">Cancel</string>
     <string name="text_fire_missiles">LAUNCH FIRE MISSILES</string>
-
-    <!-- buttons -->
+    <string name="pick_color">Pick a Color</string>
+    <array name="colors_array">
+        <item name="red">Red</item>
+        <item name="green">Green</item>
+        <item name="blue">Blue</item>
+    </array>
+    <string name="launch_colors">Launch Colors</string>
 </resources>
