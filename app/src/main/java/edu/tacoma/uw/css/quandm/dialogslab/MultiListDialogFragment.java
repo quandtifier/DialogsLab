@@ -103,6 +103,7 @@ public class MultiListDialogFragment extends DialogFragment {
                         Toast.makeText(getActivity(), builder.toString(), Toast.LENGTH_LONG).show();
                         if (mSelectedItems.size() == toppings.length) {
                             DialogFragment fragment = new TooManyToppingsDialogFragment();
+
                             if (fragment != null) {
                                 fragment.show(getActivity().getSupportFragmentManager(), "MultiList");
                             }

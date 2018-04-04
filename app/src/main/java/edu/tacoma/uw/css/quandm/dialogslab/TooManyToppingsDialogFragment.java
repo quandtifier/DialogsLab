@@ -79,7 +79,9 @@ public class TooManyToppingsDialogFragment extends DialogFragment {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         // publicly shame
                     }
-                });
+                })
+        .setIcon(R.drawable.fatman)
+        .setTitle("Fat Guy");
         return  builder.create();
     }
 /*    @Override
